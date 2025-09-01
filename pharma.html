@@ -1,0 +1,3168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Pharmacy - India's Trusted Online Pharmacy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e88e5;
+            --primary-dark: #1565c0;
+            --secondary-color: #e53935;
+            --secondary-dark: #c62828;
+            --success-color: #4caf50;
+            --success-dark: #3d8b40;
+            --text-color: #333;
+            --light-text: #666;
+            --border-color: #ddd;
+            --light-bg: #f0f8ff;
+            --card-bg: #ffffff;
+            --shadow: 0 3px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+        }
+
+        .logo-text h1 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .logo-text p {
+            margin: 0;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        /* Search Bar Styles */
+        .search-bar {
+            padding: 1rem;
+            background-color: #e3f2fd;
+            text-align: center;
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            padding: 0.8rem 1rem;
+            width: 100%;
+            border: 1px solid #90caf9;
+            border-radius: 30px;
+            font-size: 1rem;
+            padding-left: 45px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        /* Main Content Styles */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Product Grid Styles */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .product-name {
+            color: var(--text-color);
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+            min-height: 40px;
+        }
+
+        .product-price {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .product-manufacturer {
+            color: var(--light-text);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .prescription-badge {
+            background-color: #ffebee;
+            color: var(--secondary-dark);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .add-to-cart-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .add-to-cart-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Cart Panel Styles */
+        .cart-panel {
+            position: fixed;
+            right: 1rem;
+            top: 5rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            width: 350px;
+            max-width: 90%;
+            z-index: 1000;
+            max-height: 70vh;
+            overflow-y: auto;
+            display: none;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .cart-panel.active {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cart-title {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+
+        .close-cart:hover {
+            color: var(--secondary-color);
+        }
+
+        .cart-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.8rem 0;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .cart-item-name {
+            flex: 1;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 0.5rem;
+        }
+
+        .cart-item-price {
+            font-weight: 600;
+            color: var(--secondary-color);
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .remove-item-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .remove-item-btn:hover {
+            background-color: var(--secondary-dark);
+        }
+
+        .cart-total {
+            font-weight: bold;
+            text-align: right;
+            font-size: 1rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 0.5rem;
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            color: var(--light-text);
+            padding: 2rem 0;
+        }
+
+        .checkout-btn {
+            background-color: var(--success-color);
+            color: white;
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            background-color: var(--success-dark);
+        }
+
+        .checkout-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Cart Icon Styles */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        /* Auth Button Styles */
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .auth-btn {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .auth-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .auth-btn.primary {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .auth-btn.primary:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .user-greeting {
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
+            color: white;
+        }
+
+        .logout-btn {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 1.5rem;
+            border-radius: 8px;
+            width: 400px;
+            max-width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-text);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.2);
+        }
+
+        .form-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .auth-toggle {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .auth-toggle-link {
+            color: var(--primary-color);
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .auth-toggle-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Checkout Modal Styles */
+        .checkout-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+
+        .checkout-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 1.5rem;
+            border-radius: 8px;
+            width: 700px;
+            max-width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalFadeIn 0.3s;
+        }
+
+        .checkout-step {
+            display: none;
+        }
+
+        .checkout-step.active {
+            display: block;
+        }
+
+        .step-title {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .step-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Address Step Styles */
+        .address-list {
+            margin: 1.5rem 0;
+        }
+
+        .address-card {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .address-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .address-card.selected {
+            border-color: var(--primary-color);
+            background-color: #e3f2fd;
+        }
+
+        .address-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-color);
+        }
+
+        .address-card p {
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .address-type {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .add-address-btn {
+            width: 100%;
+            margin-top: 0.5rem;
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .add-address-btn:hover {
+            background-color: var(--success-dark);
+        }
+
+        .checkout-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .nav-btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-btn.secondary {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        .nav-btn.secondary:hover {
+            background-color: #f5f5f5;
+        }
+
+        .nav-btn.primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .nav-btn.primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* New Address Form Styles */
+        .form-group-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-group-row .form-group {
+            flex: 1;
+        }
+
+        /* Payment Step Styles */
+        .payment-options {
+            margin: 1.5rem 0;
+        }
+
+        .payment-method {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary-color);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary-color);
+            background-color: #e3f2fd;
+        }
+
+        .payment-method h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-color);
+        }
+
+        .payment-method p {
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .payment-icon {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Order Summary Styles */
+        .order-summary {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-summary h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .order-total {
+            font-weight: bold;
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.8rem;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+        }
+
+        /* Confirmation Step Styles */
+        .success-message {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .success-icon {
+            width: 60px;
+            height: 60px;
+            color: var(--success-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .success-title {
+            margin-bottom: 1rem;
+            color: var(--success-dark);
+        }
+
+        .order-details {
+            margin: 1.5rem 0;
+            text-align: left;
+            background-color: #f5f5f5;
+            padding: 1.2rem;
+            border-radius: 5px;
+        }
+
+        .order-detail-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .order-detail-label {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .continue-shopping-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .continue-shopping-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Payment Dialog Styles */
+        .payment-dialog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+        }
+
+        .payment-dialog-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            width: 450px;
+            max-width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: modalFadeIn 0.3s;
+        }
+
+        .payment-dialog-title {
+            margin-top: 0;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .payment-dialog-text {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--light-text);
+        }
+
+        .upi-id-display {
+            background-color: #e3f2fd;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            border: 1px dashed var(--primary-color);
+        }
+
+        .qr-code-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+        }
+
+        .payment-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            gap: 1rem;
+        }
+
+        .payment-btn {
+            padding: 0.8rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            flex: 1;
+        }
+
+        .payment-btn.primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .payment-btn.primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .payment-btn.secondary {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        .payment-btn.secondary:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Card Payment Form */
+        .card-payment-form .form-group-row {
+            margin-bottom: 1rem;
+        }
+
+        /* Section Styles for Navigation */
+        .category-section {
+            display: none;
+            padding: 2rem 1rem;
+        }
+
+        .category-section.active {
+            display: block;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .cart-panel {
+                width: 300px;
+                right: 0.5rem;
+            }
+
+            .checkout-content {
+                width: 95%;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .product-card {
+                padding: 0.8rem;
+            }
+
+            .form-group-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .payment-buttons {
+                flex-direction: column;
+            }
+
+            .payment-btn {
+                width: 100%;
+            }
+        }
+        /* Add to your existing CSS */
+.prescription-status {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+.prescription-status.pending {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+.prescription-status.approved {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.prescription-status.rejected {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.prescription-upload-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.prescription-upload-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.prescription-upload-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.file-input-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.file-input-label {
+    display: block;
+    padding: 1rem;
+    border: 2px dashed var(--border-color);
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.file-input-label:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(30, 136, 229, 0.05);
+}
+
+.file-input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.file-name {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>MediCare Pharmacy</h1>
+                    <p>Authentic Medicines | Free Delivery</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="cart-icon" id="cart-toggle">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="header-cart-count">0</span>
+                </div>
+                <div class="auth-buttons" id="auth-buttons">
+                    <button class="auth-btn" id="login-btn">Login</button>
+                    <button class="auth-btn primary" id="signup-btn">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-section="home">Home</a>
+                <a href="#" class="nav-link" data-section="medicines">Medicines</a>
+                <a href="#" class="nav-link" data-section="wellness">Wellness</a>
+                <a href="#" class="nav-link" data-section="healthcare">Healthcare</a>
+                <a href="#" class="nav-link" data-section="lab-tests">Lab Tests</a>
+                <a href="#" class="nav-link" data-section="offers">Offers</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" id="search" placeholder="Search for medicines, wellness products, lab tests..." oninput="filterProducts()">
+        </div>
+    </div>
+
+    <!-- Main Content Sections -->
+    <div class="main-container">
+        <!-- Home Section -->
+        <div id="home-section" class="category-section active">
+            <h2 class="section-title">Popular Medicines</h2>
+            <div class="product-grid" id="products">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Medicines Section -->
+        <div id="medicines-section" class="category-section">
+            <h2 class="section-title">All Medicines</h2>
+            <div class="product-grid" id="medicines-products">
+                <!-- Medicines will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Wellness Section -->
+        <div id="wellness-section" class="category-section">
+            <h2 class="section-title">Wellness Products</h2>
+            <div class="product-grid" id="wellness-products">
+                <!-- Wellness products will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Healthcare Section -->
+        <div id="healthcare-section" class="category-section">
+            <h2 class="section-title">Healthcare Products</h2>
+            <div class="product-grid" id="healthcare-products">
+                <!-- Healthcare products will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Lab Tests Section -->
+        <div id="lab-tests-section" class="category-section">
+            <h2 class="section-title">Lab Tests</h2>
+            <div class="product-grid" id="lab-tests">
+                <!-- Lab tests will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Offers Section -->
+        <div id="offers-section" class="category-section">
+            <h2 class="section-title">Special Offers</h2>
+            <div class="product-grid" id="offers-products">
+                <!-- Offers will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Panel -->
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3 class="cart-title">Your Cart</h3>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="empty-cart-message">Your cart is empty</p>
+        </div>
+        <div class="cart-total">Total: <span id="cart-total">₹0</span></div>
+        <button class="checkout-btn" id="checkout-btn" disabled>Proceed to Checkout</button>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Login to Your Account</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email" class="form-label">Email Address</label>
+                    <input type="email" id="login-email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password" class="form-label">Password</label>
+                    <input type="password" id="login-password" class="form-input" required>
+                </div>
+                <button type="submit" class="form-submit">Login</button>
+            </form>
+            <p class="auth-toggle">Don't have an account? <a class="auth-toggle-link" id="show-signup">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Create New Account</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name" class="form-label">Full Name</label>
+                    <input type="text" id="signup-name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email" class="form-label">Email Address</label>
+                    <input type="email" id="signup-email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password" class="form-label">Password</label>
+                    <input type="password" id="signup-password" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="signup-phone" class="form-input" required>
+                </div>
+                <button type="submit" class="form-submit">Sign Up</button>
+            </form>
+            <p class="auth-toggle">Already have an account? <a class="auth-toggle-link" id="show-login">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="checkout-modal">
+        <div class="checkout-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Checkout</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            
+            <!-- Step 1: Address Selection -->
+            <div id="address-step" class="checkout-step active">
+                <h3 class="step-title">Select Delivery Address</h3>
+                <div class="address-list" id="address-list">
+                    <!-- Addresses will be loaded here -->
+                </div>
+                <button class="add-address-btn" id="add-address-btn">
+                    <i class="fas fa-plus"></i> Add New Address
+                </button>
+                <div class="checkout-nav">
+                    <button class="nav-btn secondary" id="cancel-checkout">Cancel</button>
+                    <button class="nav-btn primary" id="proceed-to-payment">Proceed to Payment</button>
+                </div>
+            </div>
+            
+            <!-- Step 2: Add New Address -->
+            <div id="new-address-step" class="checkout-step">
+                <h3 class="step-title">Add New Address</h3>
+                <form id="new-address-form">
+                    <div class="form-group">
+                        <label for="address-name" class="form-label">Full Name</label>
+                        <input type="text" id="address-name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="address-phone" class="form-input" required>
+                    </div>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="address-pincode" class="form-label">Pincode</label>
+                            <input type="text" id="address-pincode" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address-city" class="form-label">City</label>
+                            <input type="text" id="address-city" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-street" class="form-label">Address (House No, Building, Street)</label>
+                        <input type="text" id="address-street" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-landmark" class="form-label">Landmark (Optional)</label>
+                        <input type="text" id="address-landmark" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="address-state" class="form-label">State</label>
+                        <input type="text" id="address-state" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address-type" class="form-label">Address Type</label>
+                        <select id="address-type" class="form-input">
+                            <option value="home">Home</option>
+                            <option value="work">Work</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="checkout-nav">
+                        <button type="button" class="nav-btn secondary" id="back-to-address">Back</button>
+                        <button type="submit" class="nav-btn primary">Save Address</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Step 3: Payment Method -->
+            <div id="payment-step" class="checkout-step">
+                <h3 class="step-title">Select Payment Method</h3>
+                <div class="payment-options">
+                    <div class="payment-method selected" data-method="upi">
+                        <h4><i class="fas fa-mobile-alt payment-icon"></i> UPI Payment</h4>
+                        <p>Pay using any UPI app like Google Pay, PhonePe, Paytm</p>
+                    </div>
+                    <div class="payment-method" data-method="card">
+                        <h4><i class="far fa-credit-card payment-icon"></i> Credit/Debit Card</h4>
+                        <p>Pay using Visa, Mastercard, Rupay cards</p>
+                    </div>
+                    <div class="payment-method" data-method="netbanking">
+                        <h4><i class="fas fa-university payment-icon"></i> Net Banking</h4>
+                        <p>Pay directly from your bank account</p>
+                    </div>
+                    <div class="payment-method" data-method="cod">
+                        <h4><i class="fas fa-money-bill-wave payment-icon"></i> Cash on Delivery</h4>
+                        <p>Pay when you receive your order</p>
+                    </div>
+                </div>
+                
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkout-items">
+                        <!-- Order items will be loaded here -->
+                    </div>
+                    <div class="order-total">Total: <span id="checkout-total">₹0</span></div>
+                </div>
+                
+                <div class="checkout-nav">
+                    <button class="nav-btn secondary" id="back-to-address-from-payment">Back</button>
+                    <button class="nav-btn primary" id="place-order-btn">Place Order</button>
+                </div>
+            </div>
+            
+            <!-- Step 4: Order Confirmation -->
+            <div id="confirmation-step" class="checkout-step">
+                <div class="success-message">
+                    <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <h2 class="success-title">Order Placed Successfully!</h2>
+                    
+                    <div class="order-details">
+                        <div class="order-detail-item">
+                            <span class="order-detail-label">Order ID:</span> 
+                            <strong id="order-id">ORD123456</strong>
+                        </div>
+                        <div class="order-detail-item">
+                            <span class="order-detail-label">Delivery Address:</span>
+                            <div id="delivery-address"></div>
+                        </div>
+                        <div class="order-detail-item">
+                            <span class="order-detail-label">Payment Method:</span>
+                            <span id="payment-method-display"></span>
+                        </div>
+                        <div class="order-detail-item">
+                            <span class="order-detail-label">Estimated Delivery:</span>
+                            <strong id="delivery-date">2-3 business days</strong>
+                        </div>
+                    </div>
+                    
+                    <button class="continue-shopping-btn" id="continue-shopping">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add this modal after the other modals in your HTML -->
+<div id="prescription-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Upload Prescription</h3>
+            <button class="close-modal">&times;</button>
+        </div>
+        <form id="prescription-form">
+            <div class="form-group">
+                <label for="prescription-file" class="form-label">Select Prescription File</label>
+                <input type="file" id="prescription-file" class="form-input" accept="image/*,.pdf" required>
+                <p style="font-size: 0.8rem; color: var(--light-text);">Accepted formats: JPG, PNG, PDF (Max 5MB)</p>
+            </div>
+            <div class="form-group">
+                <label for="doctor-name" class="form-label">Doctor's Name</label>
+                <input type="text" id="doctor-name" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="prescription-date" class="form-label">Date of Prescription</label>
+                <input type="date" id="prescription-date" class="form-input" required>
+            </div>
+            <button type="submit" class="form-submit">Upload Prescription</button>
+        </form>
+    </div>
+</div>
+
+    <script>
+        // Enhanced MediCare Pharmacy Application
+        (function() {
+            // Sample product data with Indian medicines and prices in INR
+            const products = [
+                { 
+                    id: 1, 
+                    name: "Paracetamol 500mg (10 tablets)", 
+                    price: 25, 
+                    image: "./paracetmol.jpg", 
+                    manufacturer: "Cipla Ltd",
+                    requiresPrescription: false, 
+                    category: "fever" 
+                },
+                { 
+                    id: 2, 
+                    name: "Ibuprofen 400mg (10 tablets)", 
+                    price: 45, 
+                    image: "./ibuprofen.jpg", 
+                    manufacturer: "Dr. Reddy's",
+                    requiresPrescription: false, 
+                    category: "pain" 
+                },
+                { 
+                    id: 3, 
+                    name: "Amoxicillin 500mg (6 capsules)", 
+                    price: 120, 
+                    image: "./amoxicillin.jpg", 
+                    manufacturer: "Sun Pharma",
+                    requiresPrescription: true, 
+                    category: "antibiotic" 
+                },
+                { 
+                    id: 4, 
+                    name: "Vitamin C 500mg (15 tablets)", 
+                    price: 65, 
+                    image: "./vitaminc.jpg", 
+                    manufacturer: "Himalaya",
+                    requiresPrescription: false, 
+                    category: "vitamin" 
+                },
+                { 
+                    id: 5, 
+                    name: "Cetirizine 10mg (10 tablets)", 
+                    price: 30, 
+                    image: "./cetirizine.jpg", 
+                    manufacturer: "Glenmark",
+                    requiresPrescription: false, 
+                    category: "allergy" 
+                },
+                { 
+                    id: 6, 
+                    name: "Azithromycin 500mg (3 tablets)", 
+                    price: 95, 
+                    image: "./azithromycin.jpg", 
+                    manufacturer: "Lupin",
+                    requiresPrescription: true, 
+                    category: "antibiotic" 
+                },
+                { 
+                    id: 7, 
+                    name: "Omeprazole 20mg (10 capsules)", 
+                    price: 85, 
+                    image: "./omeprazole.jpg", 
+                    manufacturer: "Torrent",
+                    requiresPrescription: false, 
+                    category: "acid-reflux" 
+                },
+                { 
+                    id: 8, 
+                    name: "Metformin 500mg (10 tablets)", 
+                    price: 55, 
+                    image: "./metformin.jpg", 
+                    manufacturer: "Zydus",
+                    requiresPrescription: true, 
+                    category: "diabetes" 
+                },
+                { 
+                    id: 9, 
+                    name: "Dolo 650mg (15 tablets)", 
+                    price: 40, 
+                    image: "./dolo.jpg", 
+                    manufacturer: "Micro Labs",
+                    requiresPrescription: false, 
+                    category: "fever" 
+                },
+                { 
+                    id: 10, 
+                    name: "Atorvastatin 10mg (10 tablets)", 
+                    price: 75, 
+                    image: "./atorvastatin.jpg", 
+                    manufacturer: "Cadila",
+                    requiresPrescription: true, 
+                    category: "cholesterol" 
+                },
+                { 
+                    id: 11, 
+                    name: "Combiflam (10 tablets)", 
+                    price: 50, 
+                    image: "./combiflam.jpg", 
+                    manufacturer: "Sanofi",
+                    requiresPrescription: false, 
+                    category: "pain" 
+                },
+                { 
+                    id: 12, 
+                    name: "Liv 52 DS (60 tablets)", 
+                    price: 110, 
+                    image: "./liv52ds.jpg", 
+                    manufacturer: "Himalaya",
+                    requiresPrescription: false, 
+                    category: "liver" 
+                }
+            ];
+
+            // Sample data for other categories
+            const wellnessProducts = [
+                { 
+                    id: 101, 
+                    name: "Vitamin D3 1000 IU (60 capsules)", 
+                    price: 299, 
+                    image: "./vitamind3.jpeg", 
+                    manufacturer: "Himalaya",
+                    requiresPrescription: false, 
+                    category: "vitamin" 
+                },
+                { 
+                    id: 102, 
+                    name: "Omega-3 Fish Oil (60 softgels)", 
+                    price: 499, 
+                    image: "./omega3.jpeg", 
+                    manufacturer: "HealthKart",
+                    requiresPrescription: false, 
+                    category: "supplement" 
+                },
+                { 
+                    id: 103, 
+                    name: "Protein Powder 1kg (Chocolate)", 
+                    price: 899, 
+                    image: "./proteinpowder.jpeg", 
+                    manufacturer: "MuscleBlaze",
+                    requiresPrescription: false, 
+                    category: "fitness" 
+                }
+            ];
+
+            const healthcareProducts = [
+                { 
+                    id: 201, 
+                    name: "Blood Pressure Monitor", 
+                    price: 1299, 
+                    image: "./bpmonitor.jpeg", 
+                    manufacturer: "Dr. Morepen",
+                    requiresPrescription: false, 
+                    category: "monitor" 
+                },
+                { 
+                    id: 202, 
+                    name: "Glucometer with Strips", 
+                    price: 999, 
+                    image: "./glucometer.jpeg", 
+                    manufacturer: "Accu-Chek",
+                    requiresPrescription: false, 
+                    category: "diabetes" 
+                },
+                { 
+                    id: 203, 
+                    name: "Oximeter", 
+                    price: 899, 
+                    image: "./oximeter.jpeg", 
+                    manufacturer: "Dr. Trust",
+                    requiresPrescription: false, 
+                    category: "monitor" 
+                }
+            ];
+
+            const labTests = [
+                { 
+                    id: 301, 
+                    name: "Complete Blood Count (CBC)", 
+                    price: 399, 
+                    image: "./cbc.jpeg", 
+                    description: "Measures different components of blood",
+                    requiresPrescription: false
+                },
+                { 
+                    id: 302, 
+                    name: "Thyroid Profile (T3, T4, TSH)", 
+                    price: 599, 
+                    image: "./thyroid.jpeg", 
+                    description: "Measures thyroid hormone levels",
+                    requiresPrescription: false
+                },
+                { 
+                    id: 303, 
+                    name: "Lipid Profile", 
+                    price: 499, 
+                    image: "./lipid.jpeg", 
+                    description: "Measures cholesterol and triglycerides",
+                    requiresPrescription: false
+                }
+            ];
+
+            const offersProducts = [
+                { 
+                    id: 401, 
+                    name: "Dolo 650mg (15 tablets) - 20% OFF", 
+                    price: 32, 
+                    originalPrice: 40,
+                    image: "./dolo.jpg", 
+                    manufacturer: "Micro Labs",
+                    requiresPrescription: false, 
+                    category: "fever" 
+                },
+                { 
+                    id: 402, 
+                    name: "Vitamin C 1000mg (30 tablets) - Buy 1 Get 1 Free", 
+                    price: 199, 
+                    originalPrice: 399,
+                    image: "./vitaminc1000.jpeg", 
+                    manufacturer: "Himalaya",
+                    requiresPrescription: false, 
+                    category: "vitamin" 
+                },
+                { 
+                    id: 403, 
+                    name: "Blood Pressure Monitor - 15% OFF", 
+                    price: 1104, 
+                    originalPrice: 1299,
+                    image: "./bpmonitor.jpeg", 
+                    manufacturer: "Dr. Morepen",
+                    requiresPrescription: false, 
+                    category: "monitor" 
+                }
+            ];
+
+            // Application State
+            const state = {
+                cart: [],
+                currentUser: null,
+                prescriptions: [],
+                currentPrescriptionUpload: null,
+                userAddresses: [
+                    {
+                        name: "Hema Machireddy",
+                        phone: "9876543210",
+                        pincode: "521201",
+                        street: "17-179/19a",
+                        landmark: "Near lava chetan tvs showroom",
+                        city: "Nuzvid",
+                        state: "Andhra Pradesh",
+                        type: "home"
+                    },
+                ],
+                selectedAddress: null,
+                selectedPaymentMethod: 'upi',
+                checkoutModal: document.getElementById('checkout-modal'),
+                currentSection: 'home'
+            };
+
+            // DOM Elements
+            const elements = {
+                productGrid: document.getElementById('products'),
+                medicinesProducts: document.getElementById('medicines-products'),
+                wellnessProducts: document.getElementById('wellness-products'),
+                healthcareProducts: document.getElementById('healthcare-products'),
+                labTests: document.getElementById('lab-tests'),
+                offersProducts: document.getElementById('offers-products'),
+                cartToggle: document.getElementById('cart-toggle'),
+                closeCart: document.getElementById('close-cart'),
+                checkoutBtn: document.getElementById('checkout-btn'),
+                cartPanel: document.getElementById('cart-panel'),
+                cartItems: document.getElementById('cart-items'),
+                cartTotal: document.getElementById('cart-total'),
+                headerCartCount: document.getElementById('header-cart-count'),
+                searchInput: document.getElementById('search'),
+                loginBtn: document.getElementById('login-btn'),
+                signupBtn: document.getElementById('signup-btn'),
+                loginModal: document.getElementById('login-modal'),
+                signupModal: document.getElementById('signup-modal'),
+                showLogin: document.getElementById('show-login'),
+                showSignup: document.getElementById('show-signup'),
+                closeModals: document.querySelectorAll('.close-modal'),
+                authButtons: document.getElementById('auth-buttons'),
+                cancelCheckout: document.getElementById('cancel-checkout'),
+                proceedToPayment: document.getElementById('proceed-to-payment'),
+                addAddressBtn: document.getElementById('add-address-btn'),
+                backToAddress: document.getElementById('back-to-address'),
+                newAddressForm: document.getElementById('new-address-form'),
+                backToAddressFromPayment: document.getElementById('back-to-address-from-payment'),
+                placeOrderBtn: document.getElementById('place-order-btn'),
+                continueShopping: document.getElementById('continue-shopping'),
+                addressList: document.getElementById('address-list'),
+                checkoutItems: document.getElementById('checkout-items'),
+                checkoutTotal: document.getElementById('checkout-total'),
+                orderId: document.getElementById('order-id'),
+                deliveryDate: document.getElementById('delivery-date'),
+                deliveryAddress: document.getElementById('delivery-address'),
+                paymentMethodDisplay: document.getElementById('payment-method-display'),
+                navLinks: document.querySelectorAll('.nav-link'),
+                categorySections: document.querySelectorAll('.category-section')
+            };
+
+            // Initialize the application
+            function init() {
+                displayProducts();
+                displayWellnessProducts();
+                displayHealthcareProducts();
+                displayLabTests();
+                displayOffers();
+                setupEventListeners();
+                updateAuthUI();
+            }
+
+            // Display products function
+            function displayProducts(productsToShow = products) {
+                elements.productGrid.innerHTML = '';
+
+                if (productsToShow.length === 0) {
+                    elements.productGrid.innerHTML = `
+                        <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
+                            <i class="fas fa-search" style="font-size: 2rem; color: #ccc; margin-bottom: 1rem;"></i>
+                            <p style="color: var(--light-text);">No medicines found matching your search</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                productsToShow.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="product-image" 
+                             onerror="this.src='https://via.placeholder.com/150?text=Medicine+Image'">
+                        <div class="product-manufacturer">${product.manufacturer}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-price">₹${product.price}</div>
+                        ${product.requiresPrescription ? '<div class="prescription-badge"><i class="fas fa-prescription"></i> Prescription Required</div>' : ''}
+                        <button class="add-to-cart-btn" onclick="app.addToCart(${product.id})" 
+                                ${!state.currentUser ? 'disabled title="Please login to add to cart"' : ''}>
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    `;
+                    elements.productGrid.appendChild(productCard);
+                });
+            }
+
+            // Display all medicines
+            function displayAllMedicines() {
+                elements.medicinesProducts.innerHTML = '';
+                
+                products.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="product-image" 
+                             onerror="this.src='https://via.placeholder.com/150?text=Medicine+Image'">
+                        <div class="product-manufacturer">${product.manufacturer}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-price">₹${product.price}</div>
+                        ${product.requiresPrescription ? '<div class="prescription-badge"><i class="fas fa-prescription"></i> Prescription Required</div>' : ''}
+                        <button class="add-to-cart-btn" onclick="app.addToCart(${product.id})" 
+                                ${!state.currentUser ? 'disabled title="Please login to add to cart"' : ''}>
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    `;
+                    elements.medicinesProducts.appendChild(productCard);
+                });
+            }
+
+            // Display wellness products
+            function displayWellnessProducts() {
+                elements.wellnessProducts.innerHTML = '';
+
+                wellnessProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="product-image" 
+                             onerror="this.src='https://via.placeholder.com/150?text=Wellness+Product'">
+                        <div class="product-manufacturer">${product.manufacturer}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-price">₹${product.price}</div>
+                        <button class="add-to-cart-btn" onclick="app.addToCart(${product.id})" 
+                                ${!state.currentUser ? 'disabled title="Please login to add to cart"' : ''}>
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    `;
+                    elements.wellnessProducts.appendChild(productCard);
+                });
+            }
+
+            // Display healthcare products
+            function displayHealthcareProducts() {
+                elements.healthcareProducts.innerHTML = '';
+
+                healthcareProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="product-image" 
+                             onerror="this.src='https://via.placeholder.com/150?text=Healthcare+Product'">
+                        <div class="product-manufacturer">${product.manufacturer}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-price">₹${product.price}</div>
+                        <button class="add-to-cart-btn" onclick="app.addToCart(${product.id})" 
+                                ${!state.currentUser ? 'disabled title="Please login to add to cart"' : ''}>
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    `;
+                    elements.healthcareProducts.appendChild(productCard);
+                });
+            }
+
+            // Display lab tests
+            function displayLabTests() {
+    elements.labTests.innerHTML = '';
+
+    labTests.forEach(test => {
+        const testCard = document.createElement('div');
+        testCard.className = 'product-card';
+        testCard.innerHTML = `
+            <img src="${test.image}" alt="${test.name}" class="product-image" 
+                 onerror="this.src='https://via.placeholder.com/150?text=Lab+Test'">
+            <h3 class="product-name">${test.name}</h3>
+            <p style="color: var(--light-text); font-size: 0.9rem; margin-bottom: 0.5rem;">${test.description}</p>
+            <div class="product-price">₹${test.price}</div>
+            <button class="add-to-cart-btn" onclick="app.bookLabTest(${test.id})" 
+                    ${!state.currentUser ? 'disabled title="Please login to book test"' : ''}>
+                <i class="fas fa-calendar-check"></i> Book Test
+            </button>
+        `;
+        elements.labTests.appendChild(testCard);
+    });
+}
+// Update the bookLabTest function
+function bookLabTest(testId) {
+    if (!state.currentUser) {
+        alert('Please login to book lab tests');
+        openModal('login');
+        return;
+    }
+    
+    const test = labTests.find(t => t.id === testId);
+    if (!test) return;
+    
+    // Create a modal for test booking with payment step
+    const bookingModal = document.createElement('div');
+    bookingModal.className = 'payment-dialog';
+    bookingModal.innerHTML = `
+        <div class="payment-dialog-content">
+            <h3 class="payment-dialog-title">Book Lab Test</h3>
+            <p class="payment-dialog-text">${test.name} - ₹${test.price}</p>
+            
+            <div id="lab-test-steps">
+                <!-- Step 1: Patient Details -->
+                <div id="patient-details-step" class="checkout-step active">
+                    <form id="lab-test-form">
+                        <div class="form-group">
+                            <label for="patient-name" class="form-label">Patient Name</label>
+                            <input type="text" id="patient-name" class="form-input" value="${state.currentUser.name || ''}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-age" class="form-label">Patient Age</label>
+                            <input type="number" id="patient-age" class="form-input" required min="1" max="120">
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-gender" class="form-label">Gender</label>
+                            <select id="patient-gender" class="form-input" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="test-date" class="form-label">Preferred Date</label>
+                            <input type="date" id="test-date" class="form-input" required min="${new Date().toISOString().split('T')[0]}">
+                        </div>
+                        <div class="form-group">
+                            <label for="test-time" class="form-label">Preferred Time</label>
+                            <select id="test-time" class="form-input" required>
+                                <option value="">Select Time Slot</option>
+                                <option value="morning">Morning (8AM - 11AM)</option>
+                                <option value="afternoon">Afternoon (12PM - 3PM)</option>
+                                <option value="evening">Evening (4PM - 7PM)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="test-address" class="form-label">Collection Address</label>
+                            <select id="test-address" class="form-input" required>
+                                <option value="">Select Address</option>
+                                ${state.userAddresses.map(addr => 
+                                    `<option value="${addr.street}, ${addr.city}">${addr.type.toUpperCase()}: ${addr.street}, ${addr.city}</option>`
+                                ).join('')}
+                            </select>
+                        </div>
+                        <div class="payment-buttons">
+                            <button type="button" class="payment-btn secondary" id="cancel-lab-booking">Cancel</button>
+                            <button type="button" class="payment-btn primary" id="proceed-to-lab-payment">Proceed to Payment</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Step 2: Payment -->
+                <div id="lab-payment-step" class="checkout-step">
+                    <h3 class="step-title">Payment Method</h3>
+                    <div class="payment-options">
+                        <div class="payment-method selected" data-method="upi">
+                            <h4><i class="fas fa-mobile-alt payment-icon"></i> UPI Payment</h4>
+                            <p>Pay using any UPI app like Google Pay, PhonePe, Paytm</p>
+                        </div>
+                        <div class="payment-method" data-method="card">
+                            <h4><i class="far fa-credit-card payment-icon"></i> Credit/Debit Card</h4>
+                            <p>Pay using Visa, Mastercard, Rupay cards</p>
+                        </div>
+                        <div class="payment-method" data-method="netbanking">
+                            <h4><i class="fas fa-university payment-icon"></i> Net Banking</h4>
+                            <p>Pay directly from your bank account</p>
+                        </div>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        <div class="order-item">
+                            <span>${test.name}</span>
+                            <span>₹${test.price}</span>
+                        </div>
+                        <div class="order-total">Total: ₹${test.price}</div>
+                    </div>
+                    
+                    <div class="payment-buttons">
+                        <button type="button" class="payment-btn secondary" id="back-to-lab-details">Back</button>
+                        <button type="button" class="payment-btn primary" id="confirm-lab-payment">Pay Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(bookingModal);
+    
+    // Payment method selection
+    bookingModal.querySelectorAll('.payment-method').forEach(method => {
+        method.addEventListener('click', function() {
+            bookingModal.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+            this.classList.add('selected');
+            state.selectedPaymentMethod = this.dataset.method;
+        });
+    });
+    
+    // Step navigation
+    bookingModal.querySelector('#proceed-to-lab-payment').addEventListener('click', function() {
+        // Validate form first
+        const form = document.getElementById('lab-test-form');
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+        
+        // Proceed to payment step
+        bookingModal.querySelector('#patient-details-step').classList.remove('active');
+        bookingModal.querySelector('#lab-payment-step').classList.add('active');
+    });
+    
+    bookingModal.querySelector('#back-to-lab-details').addEventListener('click', function() {
+        bookingModal.querySelector('#lab-payment-step').classList.remove('active');
+        bookingModal.querySelector('#patient-details-step').classList.add('active');
+    });
+    
+    // Handle payment confirmation
+    bookingModal.querySelector('#confirm-lab-payment').addEventListener('click', function() {
+        if (!state.selectedPaymentMethod) {
+            alert('Please select a payment method');
+            return;
+        }
+        
+        // Handle different payment methods
+        if (state.selectedPaymentMethod === 'upi') {
+            showUpiPaymentForTest(test, bookingModal);
+        } else if (state.selectedPaymentMethod === 'card') {
+            showCardPaymentForTest(test, bookingModal);
+        } else if (state.selectedPaymentMethod === 'netbanking') {
+            showNetBankingForTest(test, bookingModal);
+        }
+    });
+    
+    // Handle cancellation
+    bookingModal.querySelector('#cancel-lab-booking').addEventListener('click', function() {
+        document.body.removeChild(bookingModal);
+    });
+}
+
+// Helper functions for test payment
+function showUpiPaymentForTest(test, bookingModal) {
+    const upiDialog = document.createElement('div');
+    upiDialog.className = 'payment-dialog';
+    upiDialog.innerHTML = `
+        <div class="payment-dialog-content">
+            <h3 class="payment-dialog-title">UPI Payment</h3>
+            <p class="payment-dialog-text">Please complete the payment using your preferred UPI app</p>
+            <div class="upi-id-display">medicarelabs@upi</div>
+            <div class="qr-code-container">
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=medicarelabs@upi&pn=MediCare%20Labs&am=${test.price}" alt="UPI QR Code">
+                </div>
+            </div>
+            <p class="payment-dialog-text">Or enter this UPI ID in your payment app</p>
+            <div class="payment-buttons">
+                <button class="payment-btn secondary" id="cancel-test-payment">Cancel</button>
+                <button class="payment-btn primary" id="test-payment-success">Payment Done</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(upiDialog);
+    
+    // Handle payment completion
+    upiDialog.querySelector('#test-payment-success').addEventListener('click', function() {
+        document.body.removeChild(upiDialog);
+        completeLabTestBooking(test, bookingModal);
+    });
+    
+    // Handle payment cancellation
+    upiDialog.querySelector('#cancel-test-payment').addEventListener('click', function() {
+        document.body.removeChild(upiDialog);
+    });
+}
+
+function showCardPaymentForTest(test, bookingModal) {
+    const cardDialog = document.createElement('div');
+    cardDialog.className = 'payment-dialog';
+    cardDialog.innerHTML = `
+        <div class="payment-dialog-content">
+            <h3 class="payment-dialog-title">Card Payment</h3>
+            <form id="card-payment-form" class="card-payment-form">
+                <div class="form-group">
+                    <label for="card-number" class="form-label">Card Number</label>
+                    <input type="text" id="card-number" class="form-input" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-group">
+                    <label for="card-name" class="form-label">Name on Card</label>
+                    <input type="text" id="card-name" class="form-input" placeholder="John Doe" required>
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="card-expiry" class="form-label">Expiry Date</label>
+                        <input type="text" id="card-expiry" class="form-input" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-cvv" class="form-label">CVV</label>
+                        <input type="text" id="card-cvv" class="form-input" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="payment-buttons">
+                    <button type="button" class="payment-btn secondary" id="cancel-card-payment">Cancel</button>
+                    <button type="submit" class="payment-btn primary">Pay ₹${test.price}</button>
+                </div>
+            </form>
+        </div>
+    `;
+    
+    document.body.appendChild(cardDialog);
+    
+    // Handle form submission
+    cardDialog.querySelector('#card-payment-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.body.removeChild(cardDialog);
+        completeLabTestBooking(test, bookingModal);
+    });
+    
+    // Handle payment cancellation
+    cardDialog.querySelector('#cancel-card-payment').addEventListener('click', function() {
+        document.body.removeChild(cardDialog);
+    });
+}
+
+function showNetBankingForTest(test, bookingModal) {
+    const netbankingDialog = document.createElement('div');
+    netbankingDialog.className = 'payment-dialog';
+    netbankingDialog.innerHTML = `
+        <div class="payment-dialog-content">
+            <h3 class="payment-dialog-title">Net Banking</h3>
+            <p class="payment-dialog-text">Select your bank</p>
+            <select id="bank-selection" class="bank-select form-input">
+                <option value="">-- Select Bank --</option>
+                <option value="sbi">State Bank of India</option>
+                <option value="hdfc">HDFC Bank</option>
+                <option value="icici">ICICI Bank</option>
+                <option value="axis">Axis Bank</option>
+                <option value="kotak">Kotak Mahindra Bank</option>
+            </select>
+            <div class="payment-buttons">
+                <button type="button" class="payment-btn secondary" id="cancel-netbanking">Cancel</button>
+                <button type="button" class="payment-btn primary" id="proceed-netbanking">Proceed to Payment</button>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(netbankingDialog);
+
+    // Handle proceed to payment
+    netbankingDialog.querySelector('#proceed-netbanking').addEventListener('click', function() {
+        const selectedBank = netbankingDialog.querySelector('#bank-selection').value;
+        if (!selectedBank) {
+            alert('Please select a bank');
+            return;
+        }
+        
+        document.body.removeChild(netbankingDialog);
+        
+        const bankRedirect = document.createElement('div');
+        bankRedirect.className = 'payment-dialog';
+        bankRedirect.innerHTML = `
+            <div class="payment-dialog-content">
+                <h3 class="payment-dialog-title">Redirecting to ${netbankingDialog.querySelector('#bank-selection').options[netbankingDialog.querySelector('#bank-selection').selectedIndex].text}...</h3>
+                <p class="payment-dialog-text">Please complete the payment on your bank's secure page</p>
+                <div class="payment-buttons">
+                    <button type="button" class="payment-btn secondary" id="cancel-bank-redirect">Cancel</button>
+                    <button type="button" class="payment-btn primary" id="bank-payment-success">Payment Successful</button>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(bankRedirect);
+        
+        bankRedirect.querySelector('#bank-payment-success').addEventListener('click', function() {
+            document.body.removeChild(bankRedirect);
+            completeLabTestBooking(test, bookingModal);
+        });
+        
+        bankRedirect.querySelector('#cancel-bank-redirect').addEventListener('click', function() {
+            document.body.removeChild(bankRedirect);
+        });
+    });
+    
+    netbankingDialog.querySelector('#cancel-netbanking').addEventListener('click', function() {
+        document.body.removeChild(netbankingDialog);
+    });
+}
+
+function completeLabTestBooking(test, bookingModal) {
+    // Get all the form data
+    const form = document.getElementById('lab-test-form');
+    const patientName = document.getElementById('patient-name').value;
+    const patientAge = document.getElementById('patient-age').value;
+    const patientGender = document.getElementById('patient-gender').value;
+    const testDate = document.getElementById('test-date').value;
+    const testTime = document.getElementById('test-time').value;
+    const testAddress = document.getElementById('test-address').value;
+    
+    // Generate booking ID
+    const bookingId = 'LAB' + Math.floor(100000 + Math.random() * 900000);
+    
+    // In a real app, you would send this data to your backend
+    const bookingDetails = {
+        bookingId,
+        testId: test.id,
+        testName: test.name,
+        price: test.price,
+        patientName,
+        patientAge,
+        patientGender,
+        testDate,
+        testTime,
+        testAddress,
+        paymentMethod: state.selectedPaymentMethod,
+        bookedAt: new Date().toISOString(),
+        status: 'confirmed'
+    };
+    
+    // Remove the booking modal
+    document.body.removeChild(bookingModal);
+    
+    // Show confirmation
+    const confirmationModal = document.createElement('div');
+    confirmationModal.className = 'payment-dialog';
+    confirmationModal.innerHTML = `
+        <div class="payment-dialog-content">
+            <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h3 class="payment-dialog-title">Test Booked Successfully!</h3>
+            
+            <div class="order-details">
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Booking ID:</span> 
+                    <strong>${bookingId}</strong>
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Test Name:</span> 
+                    <strong>${test.name}</strong>
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Patient:</span>
+                    ${patientName} (${patientAge} years, ${patientGender})
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Scheduled For:</span>
+                    ${new Date(testDate).toLocaleDateString('en-IN')} - ${testTime}
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Collection Address:</span>
+                    ${testAddress}
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Amount Paid:</span>
+                    <strong>₹${test.price}</strong>
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Payment Method:</span>
+                    ${state.selectedPaymentMethod === 'upi' ? 'UPI Payment' : 
+                      state.selectedPaymentMethod === 'card' ? 'Credit/Debit Card' : 
+                      'Net Banking'}
+                </div>
+            </div>
+            
+            <button class="continue-shopping-btn" id="close-lab-confirmation">Continue</button>
+        </div>
+    `;
+    
+    document.body.appendChild(confirmationModal);
+    
+    confirmationModal.querySelector('#close-lab-confirmation').addEventListener('click', function() {
+        document.body.removeChild(confirmationModal);
+    });
+}
+
+function showLabTestConfirmation(bookingDetails) {
+    const confirmationModal = document.createElement('div');
+    confirmationModal.className = 'payment-dialog';
+    confirmationModal.innerHTML = `
+        <div class="payment-dialog-content">
+            <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h3 class="payment-dialog-title">Test Booked Successfully!</h3>
+            
+            <div class="order-details">
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Test Name:</span> 
+                    <strong>${bookingDetails.testName}</strong>
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Patient:</span>
+                    ${bookingDetails.patientName} (${bookingDetails.patientAge} years, ${bookingDetails.patientGender})
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Scheduled For:</span>
+                    ${new Date(bookingDetails.testDate).toLocaleDateString('en-IN')} - ${bookingDetails.testTime}
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Collection Address:</span>
+                    ${bookingDetails.testAddress}
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Amount Paid:</span>
+                    <strong>₹${bookingDetails.price}</strong>
+                </div>
+            </div>
+            
+            <button class="continue-shopping-btn" id="close-lab-confirmation">Continue</button>
+        </div>
+    `;
+    
+    document.body.appendChild(confirmationModal);
+    
+    document.getElementById('close-lab-confirmation').addEventListener('click', function() {
+        document.body.removeChild(confirmationModal);
+    });
+}
+
+            // Display offers
+            function displayOffers() {
+                elements.offersProducts.innerHTML = '';
+
+                offersProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}" class="product-image" 
+                             onerror="this.src='https://via.placeholder.com/150?text=Special+Offer'">
+                        <div class="product-manufacturer">${product.manufacturer}</div>
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-price">
+                            <span style="text-decoration: line-through; color: var(--light-text); margin-right: 0.5rem;">₹${product.originalPrice}</span>
+                            <span>₹${product.price}</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="app.addToCart(${product.id})" 
+                                ${!state.currentUser ? 'disabled title="Please login to add to cart"' : ''}>
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    `;
+                    elements.offersProducts.appendChild(productCard);
+                });
+            }
+
+            // Filter products based on search
+            function filterProducts() {
+                const searchTerm = elements.searchInput.value.toLowerCase();
+                const filtered = products.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm) || 
+                    product.manufacturer.toLowerCase().includes(searchTerm) ||
+                    product.category.toLowerCase().includes(searchTerm)
+                );
+                
+                if (state.currentSection === 'home' || state.currentSection === 'medicines') {
+                    displayProducts(filtered);
+                }
+            }
+            function handlePrescriptionUpload(productId) {
+    if (!state.currentUser) {
+        alert('Please login to upload prescriptions');
+        openModal('login');
+        return;
+    }
+
+    // Store the product ID that requires prescription
+    state.currentPrescriptionUpload = productId;
+    
+    // Open prescription modal
+    const prescriptionModal = document.getElementById('prescription-modal');
+    prescriptionModal.style.display = 'block';
+    
+    // Handle form submission
+    document.getElementById('prescription-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const fileInput = document.getElementById('prescription-file');
+        const doctorName = document.getElementById('doctor-name').value;
+        const prescriptionDate = document.getElementById('prescription-date').value;
+        
+        if (fileInput.files.length === 0) {
+            alert('Please select a prescription file');
+            return;
+        }
+        
+        const file = fileInput.files[0];
+        const fileSize = file.size / 1024 / 1024; // in MB
+        
+        if (fileSize > 5) {
+            alert('File size exceeds 5MB limit');
+            return;
+        }
+        
+        // In a real app, you would upload to server here
+        // For demo, we'll just store the metadata
+        
+        const newPrescription = {
+            id: Date.now(),
+            productId: state.currentPrescriptionUpload,
+            fileName: file.name,
+            doctorName,
+            date: prescriptionDate,
+            uploadedAt: new Date().toISOString(),
+            status: 'pending' // pending, approved, rejected
+        };
+        
+        state.prescriptions.push(newPrescription);
+        
+        // Add the product to cart if prescription uploaded
+        const product = products.find(p => p.id === state.currentPrescriptionUpload);
+        if (product && !state.cart.some(item => item.id === product.id)) {
+            state.cart.push(product);
+            updateCart();
+        }
+        
+        // Reset and close
+        state.currentPrescriptionUpload = null;
+        prescriptionModal.style.display = 'none';
+        document.getElementById('prescription-form').reset();
+        
+        alert('Prescription uploaded successfully!');
+        
+        // Automatically open checkout after upload
+        openCheckoutModal();
+    });
+}
+            // Add to cart function
+            function addToCart(productId) {
+    if (!state.currentUser) {
+        alert('Please login to add items to cart');
+        openModal('login');
+        return;
+    }
+    
+    // Don't allow adding lab tests to cart
+    if (labTests.some(t => t.id === productId)) {
+        bookLabTest(productId);
+        return;
+    }
+    
+    let product = products.find(p => p.id === productId) || 
+                  wellnessProducts.find(p => p.id === productId) || 
+                  healthcareProducts.find(p => p.id === productId) || 
+                  offersProducts.find(p => p.id === productId);
+    
+    if (!product) return;
+    
+    if (product.requiresPrescription) {
+        // Check if user already has an approved prescription for this product
+        const existingPrescription = state.prescriptions.find(
+            p => p.productId === productId && p.status === 'approved'
+        );
+        
+        if (existingPrescription) {
+            state.cart.push(product);
+            updateCart();
+            showCartPanel();
+        } else {
+            // Show prescription upload modal
+            handlePrescriptionUpload(productId);
+        }
+    } else {
+        state.cart.push(product);
+        updateCart();
+        showCartPanel();
+    }
+}
+
+            // Remove item from cart
+            function removeFromCart(index) {
+                state.cart.splice(index, 1);
+                updateCart();
+            }
+
+            // Update cart display
+            function updateCart() {
+                const count = state.cart.length;
+                elements.headerCartCount.textContent = count;
+                
+                elements.cartItems.innerHTML = '';
+                
+                if (state.cart.length === 0) {
+                    elements.cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty</p>';
+                    elements.checkoutBtn.disabled = true;
+                } else {
+                    state.cart.forEach((item, index) => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'cart-item';
+                        itemDiv.innerHTML = `
+                            <span class="cart-item-name">${item.name}</span>
+                            <span class="cart-item-price">₹${item.price}</span>
+                            <button class="remove-item-btn" onclick="app.removeFromCart(${index})">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        `;
+                        elements.cartItems.appendChild(itemDiv);
+                    });
+                    elements.checkoutBtn.disabled = false;
+                }
+
+                // Update total
+                const total = state.cart.reduce((sum, item) => sum + item.price, 0);
+                elements.cartTotal.textContent = `₹${total}`;
+            }
+
+            // Cart panel functions
+            function showCartPanel() {
+                elements.cartPanel.classList.add('active');
+            }
+
+            function closeCartPanel() {
+                elements.cartPanel.classList.remove('active');
+            }
+
+            function toggleCartPanel() {
+                if (state.cart.length > 0) {
+                    elements.cartPanel.classList.toggle('active');
+                } else {
+                    elements.cartPanel.classList.add('active');
+                    elements.cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty</p>';
+                }
+            }
+
+            // Checkout function
+            // Update the checkout function
+            function checkout() {
+    if (state.cart.length === 0) {
+        alert('Your cart is empty. Please add some medicines.');
+        return;
+    }
+    
+    if (!state.currentUser) {
+        alert('Please login to proceed to checkout');
+        openModal('login');
+        return;
+    }
+    
+    // Check for prescription items
+    const prescriptionItems = state.cart.filter(item => item.requiresPrescription);
+    
+    // Check if any prescription items don't have approved prescriptions
+    const itemsNeedingPrescription = prescriptionItems.filter(item => 
+        !state.prescriptions.some(p => 
+            p.productId === item.id && p.status === 'approved'
+        )
+    );
+    
+    if (itemsNeedingPrescription.length > 0) {
+        // Show prescription upload prompt
+        const itemNames = itemsNeedingPrescription.map(item => item.name).join(', ');
+        if (confirm(`The following items require a prescription: ${itemNames}\nWould you like to upload prescriptions now?`)) {
+            // Open prescription modal for the first item needing prescription
+            state.currentPrescriptionUpload = itemsNeedingPrescription[0].id;
+            document.getElementById('prescription-modal').style.display = 'block';
+            
+            // Modify the prescription form submission to return to checkout after upload
+            const prescriptionForm = document.getElementById('prescription-form');
+            const originalSubmit = prescriptionForm.onsubmit;
+            
+            prescriptionForm.onsubmit = function(e) {
+                originalSubmit(e);
+                // After successful upload, reopen checkout
+                setTimeout(() => {
+                    openCheckoutModal();
+                }, 100);
+                return false;
+            };
+        }
+    } else {
+        openCheckoutModal();
+    }
+}
+
+            // Checkout modal functions
+            function openCheckoutModal() {
+                state.checkoutModal.style.display = 'block';
+                loadAddresses();
+                showCheckoutStep('address-step');
+            }
+
+            function closeCheckoutModal() {
+                state.checkoutModal.style.display = 'none';
+            }
+
+            function showCheckoutStep(stepId) {
+                document.querySelectorAll('.checkout-step').forEach(step => {
+                    step.classList.remove('active');
+                });
+                document.getElementById(stepId).classList.add('active');
+            }
+
+            function loadAddresses() {
+                elements.addressList.innerHTML = '';
+                
+                if (state.userAddresses.length === 0) {
+                    elements.addressList.innerHTML = '<p style="text-align: center; color: var(--light-text);">No addresses saved. Please add a new address.</p>';
+                    return;
+                }
+                
+                state.userAddresses.forEach((address, index) => {
+                    const addressCard = document.createElement('div');
+                    addressCard.className = 'address-card';
+                    if (address === state.selectedAddress) {
+                        addressCard.classList.add('selected');
+                    }
+                    addressCard.innerHTML = `
+                        <h4>${address.name}</h4>
+                        <p>${address.street}, ${address.landmark ? address.landmark + ', ' : ''}</p>
+                        <p>${address.city}, ${address.state} - ${address.pincode}</p>
+                        <p>Phone: ${address.phone}</p>
+                        <span class="address-type">${address.type.charAt(0).toUpperCase() + address.type.slice(1)}</span>
+                    `;
+                    addressCard.addEventListener('click', () => {
+                        state.selectedAddress = address;
+                        loadAddresses();
+                    });
+                    elements.addressList.appendChild(addressCard);
+                });
+            }
+
+            function proceedToPayment() {
+                if (!state.selectedAddress) {
+                    alert('Please select a delivery address');
+                    return;
+                }
+                
+                // Update order summary
+                elements.checkoutItems.innerHTML = '';
+                
+                state.cart.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'order-item';
+                    itemDiv.innerHTML = `
+                        <span>${item.name}</span>
+                        <span>₹${item.price}</span>
+                    `;
+                    elements.checkoutItems.appendChild(itemDiv);
+                });
+                
+                const total = state.cart.reduce((sum, item) => sum + item.price, 0);
+                elements.checkoutTotal.textContent = `₹${total}`;
+                
+                showCheckoutStep('payment-step');
+            }
+
+            function showNewAddressForm() {
+                showCheckoutStep('new-address-step');
+            }
+
+            function backToAddressSelection() {
+                showCheckoutStep('address-step');
+            }
+
+            function backToAddressSelectionFromPayment() {
+                showCheckoutStep('address-step');
+            }
+
+            function saveNewAddress(e) {
+                e.preventDefault();
+                
+                const newAddress = {
+                    name: document.getElementById('address-name').value,
+                    phone: document.getElementById('address-phone').value,
+                    pincode: document.getElementById('address-pincode').value,
+                    street: document.getElementById('address-street').value,
+                    landmark: document.getElementById('address-landmark').value,
+                    city: document.getElementById('address-city').value,
+                    state: document.getElementById('address-state').value,
+                    type: document.getElementById('address-type').value
+                };
+                
+                state.userAddresses.push(newAddress);
+                state.selectedAddress = newAddress;
+                
+                // Clear form
+                elements.newAddressForm.reset();
+                
+                showCheckoutStep('address-step');
+                loadAddresses();
+            }
+
+            function placeOrder() {
+                if (!state.selectedPaymentMethod) {
+                    alert('Please select a payment method');
+                    return;
+                }
+                
+                // Handle different payment methods
+                if (state.selectedPaymentMethod === 'cod') {
+                    // For COD, just show confirmation
+                    showOrderConfirmation();
+                } else if (state.selectedPaymentMethod === 'upi') {
+                    // For UPI, show a UPI payment dialog
+                    showUpiPaymentDialog();
+                } else if (state.selectedPaymentMethod === 'card') {
+                    // For card payments, show card form
+                    showCardPaymentForm();
+                } else if (state.selectedPaymentMethod === 'netbanking') {
+                    // For net banking, show bank selection
+                    showNetBankingOptions();
+                }
+            }
+
+            function showOrderConfirmation() {
+                // Generate random order ID
+                const orderId = 'ORD' + Math.floor(100000 + Math.random() * 900000);
+                elements.orderId.textContent = orderId;
+                
+                // Set delivery date (2-3 days from now)
+                const deliveryDate = new Date();
+                deliveryDate.setDate(deliveryDate.getDate() + 2 + Math.floor(Math.random() * 2));
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                elements.deliveryDate.textContent = deliveryDate.toLocaleDateString('en-IN', options);
+                
+                // Display selected address
+                elements.deliveryAddress.innerHTML = `
+                    <p>${state.selectedAddress.name}</p>
+                    <p>${state.selectedAddress.street}, ${state.selectedAddress.landmark ? state.selectedAddress.landmark + ', ' : ''}</p>
+                    <p>${state.selectedAddress.city}, ${state.selectedAddress.state} - ${state.selectedAddress.pincode}</p>
+                    <p>Phone: ${state.selectedAddress.phone}</p>
+                `;
+                
+                // Display payment method
+                let paymentMethodText = '';
+                switch(state.selectedPaymentMethod) {
+                    case 'upi':
+                        paymentMethodText = 'UPI Payment';
+                        break;
+                    case 'card':
+                        paymentMethodText = 'Credit/Debit Card';
+                        break;
+                    case 'netbanking':
+                        paymentMethodText = 'Net Banking';
+                        break;
+                    case 'cod':
+                        paymentMethodText = 'Cash on Delivery';
+                        break;
+                }
+                elements.paymentMethodDisplay.textContent = paymentMethodText;
+                
+                showCheckoutStep('confirmation-step');
+                
+                // Clear cart
+                state.cart = [];
+                updateCart();
+            }
+
+            function showUpiPaymentDialog() {
+                // Create UPI payment dialog
+                const upiDialog = document.createElement('div');
+                upiDialog.className = 'payment-dialog';
+                upiDialog.innerHTML = `
+                    <div class="payment-dialog-content">
+                        <h3 class="payment-dialog-title">UPI Payment</h3>
+                        <p class="payment-dialog-text">Please complete the payment using your preferred UPI app</p>
+                        <div class="upi-id-display">medicare@upi</div>
+                        <div class="qr-code-container">
+                            <div class="qr-code">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=medicare@upi&pn=MediCare%20Pharmacy&am=${state.cart.reduce((sum, item) => sum + item.price, 0)}" alt="UPI QR Code">
+                            </div>
+                        </div>
+                        <p class="payment-dialog-text">Or enter this UPI ID in your payment app</p>
+                        <div class="payment-buttons">
+                            <button class="payment-btn secondary" id="cancel-payment">Cancel</button>
+                            <button class="payment-btn primary" id="payment-success">Payment Done</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(upiDialog);
+                
+                // Handle payment completion
+                document.getElementById('payment-success').addEventListener('click', function() {
+                    document.body.removeChild(upiDialog);
+                    showOrderConfirmation();
+                });
+                
+                // Handle payment cancellation
+                document.getElementById('cancel-payment').addEventListener('click', function() {
+                    document.body.removeChild(upiDialog);
+                });
+            }
+
+            function showCardPaymentForm() {
+                // Create card payment dialog
+                const cardDialog = document.createElement('div');
+                cardDialog.className = 'payment-dialog';
+                cardDialog.innerHTML = `
+                    <div class="payment-dialog-content">
+                        <h3 class="payment-dialog-title">Card Payment</h3>
+                        <form id="card-payment-form" class="card-payment-form">
+                            <div class="form-group">
+                                <label for="card-number" class="form-label">Card Number</label>
+                                <input type="text" id="card-number" class="form-input" placeholder="1234 5678 9012 3456" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-name" class="form-label">Name on Card</label>
+                                <input type="text" id="card-name" class="form-input" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="card-expiry" class="form-label">Expiry Date</label>
+                                    <input type="text" id="card-expiry" class="form-input" placeholder="MM/YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-cvv" class="form-label">CVV</label>
+                                    <input type="text" id="card-cvv" class="form-input" placeholder="123" required>
+                                </div>
+                            </div>
+                            <div class="payment-buttons">
+                                <button type="button" class="payment-btn secondary" id="cancel-card-payment">Cancel</button>
+                                <button type="submit" class="payment-btn primary">Pay ₹${state.cart.reduce((sum, item) => sum + item.price, 0)}</button>
+                            </div>
+                        </form>
+                    </div>
+                `;
+                
+                document.body.appendChild(cardDialog);
+                
+                // Handle form submission
+                document.getElementById('card-payment-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    document.body.removeChild(cardDialog);
+                    showOrderConfirmation();
+                });
+                
+                // Handle payment cancellation
+                document.getElementById('cancel-card-payment').addEventListener('click', function() {
+                    document.body.removeChild(cardDialog);
+                });
+            }
+
+            function showNetBankingOptions() {
+                // Create net banking dialog
+                const netbankingDialog = document.createElement('div');
+                netbankingDialog.className = 'payment-dialog';
+                netbankingDialog.innerHTML = `
+                    <div class="payment-dialog-content">
+                        <h3 class="payment-dialog-title">Net Banking</h3>
+                        <p class="payment-dialog-text">Select your bank</p>
+                        <select id="bank-selection" class="bank-select form-input">
+                            <option value="">-- Select Bank --</option>
+                            <option value="sbi">State Bank of India</option>
+                            <option value="hdfc">HDFC Bank</option>
+                            <option value="icici">ICICI Bank</option>
+                            <option value="axis">Axis Bank</option>
+                            <option value="kotak">Kotak Mahindra Bank</option>
+                        </select>
+                        <div class="payment-buttons">
+                            <button type="button" class="payment-btn secondary" id="cancel-netbanking">Cancel</button>
+                            <button type="button" class="payment-btn primary" id="proceed-netbanking">Proceed to Payment</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(netbankingDialog);
+
+                // Store reference to the bank selection element
+                const bankSelection = netbankingDialog.querySelector('#bank-selection');
+                
+                // Handle proceed to payment
+                netbankingDialog.querySelector('#proceed-netbanking').addEventListener('click', function() {
+                    const selectedBank = bankSelection.value;
+                    if (!selectedBank) {
+                        alert('Please select a bank');
+                        return;
+                    }
+                    
+                    // Remove the netbanking dialog
+                    document.body.removeChild(netbankingDialog);
+                    
+                    // Create bank redirect dialog
+                    const bankRedirect = document.createElement('div');
+                    bankRedirect.className = 'payment-dialog';
+                    bankRedirect.innerHTML = `
+                        <div class="payment-dialog-content">
+                            <h3 class="payment-dialog-title">Redirecting to ${bankSelection.options[bankSelection.selectedIndex].text}...</h3>
+                            <p class="payment-dialog-text">Please complete the payment on your bank's secure page</p>
+                            <div class="payment-buttons">
+                                <button type="button" class="payment-btn secondary" id="cancel-bank-redirect">Cancel</button>
+                                <button type="button" class="payment-btn primary" id="bank-payment-success">Payment Successful</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(bankRedirect);
+                    
+                    // Handle successful payment
+                    bankRedirect.querySelector('#bank-payment-success').addEventListener('click', function() {
+                        document.body.removeChild(bankRedirect);
+                        showOrderConfirmation();
+                    });
+                    
+                    // Handle payment cancellation
+                    bankRedirect.querySelector('#cancel-bank-redirect').addEventListener('click', function() {
+                        document.body.removeChild(bankRedirect);
+                    });
+                });
+                
+                // Handle cancellation
+                netbankingDialog.querySelector('#cancel-netbanking').addEventListener('click', function() {
+                    document.body.removeChild(netbankingDialog);
+                });
+            }
+
+            function continueShopping() {
+                closeCheckoutModal();
+            }
+
+            // Auth Modal Handling
+            function openModal(modalType) {
+                if (modalType === 'login') {
+                    elements.loginModal.style.display = 'block';
+                    elements.signupModal.style.display = 'none';
+                } else if (modalType === 'signup') {
+                    elements.signupModal.style.display = 'block';
+                    elements.loginModal.style.display = 'none';
+                }
+            }
+
+            function closeAllModals() {
+                elements.loginModal.style.display = 'none';
+                elements.signupModal.style.display = 'none';
+                state.checkoutModal.style.display = 'none';
+            }
+
+            // Update UI based on auth state
+            function updateAuthUI() {
+                if (state.currentUser) {
+                    elements.authButtons.innerHTML = `
+                        <span class="user-greeting">Hi, ${state.currentUser.name || state.currentUser.email.split('@')[0]}</span>
+                        <button class="logout-btn" id="logout-btn">Logout</button>
+                    `;
+                    document.getElementById('logout-btn').addEventListener('click', () => {
+                        state.currentUser = null;
+                        updateAuthUI();
+                    });
+                } else {
+                    elements.authButtons.innerHTML = `
+                        <button class="auth-btn" id="login-btn">Login</button>
+                        <button class="auth-btn primary" id="signup-btn">Sign Up</button>
+                    `;
+                    // Reattach event listeners
+                    document.getElementById('login-btn').addEventListener('click', () => openModal('login'));
+                    document.getElementById('signup-btn').addEventListener('click', () => openModal('signup'));
+                }
+            }
+
+            // Navigation functions
+            function navigateToSection(sectionId) {
+                // Hide all sections
+                elements.categorySections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the selected section
+                document.getElementById(`${sectionId}-section`).classList.add('active');
+                
+                // Update active nav link
+                elements.navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.section === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Update current section in state
+                state.currentSection = sectionId;
+                
+                // If navigating to medicines section, display all medicines
+                if (sectionId === 'medicines') {
+                    displayAllMedicines();
+                }
+            }
+
+            // Setup event listeners
+            function setupEventListeners() {
+                // Cart related
+                elements.cartToggle.addEventListener('click', toggleCartPanel);
+                elements.closeCart.addEventListener('click', closeCartPanel);
+                elements.checkoutBtn.addEventListener('click', checkout);
+                
+                // Checkout modal
+                elements.cancelCheckout.addEventListener('click', closeCheckoutModal);
+                elements.proceedToPayment.addEventListener('click', proceedToPayment);
+                elements.addAddressBtn.addEventListener('click', showNewAddressForm);
+                elements.backToAddress.addEventListener('click', backToAddressSelection);
+                elements.newAddressForm.addEventListener('submit', saveNewAddress);
+                elements.backToAddressFromPayment.addEventListener('click', backToAddressSelectionFromPayment);
+                elements.placeOrderBtn.addEventListener('click', placeOrder);
+                elements.continueShopping.addEventListener('click', continueShopping);
+                
+                // Payment method selection
+                document.querySelectorAll('.payment-method').forEach(method => {
+                    method.addEventListener('click', function() {
+                        document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                        this.classList.add('selected');
+                        state.selectedPaymentMethod = this.dataset.method;
+                    });
+                });
+                
+                // Auth modals
+                elements.loginBtn.addEventListener('click', () => openModal('login'));
+                elements.signupBtn.addEventListener('click', () => openModal('signup'));
+                elements.showLogin.addEventListener('click', () => openModal('login'));
+                elements.showSignup.addEventListener('click', () => openModal('signup'));
+                elements.closeModals.forEach(btn => {
+                    btn.addEventListener('click', closeAllModals);
+                });
+                
+                // Navigation links
+                elements.navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        navigateToSection(this.dataset.section);
+                    });
+                });
+                
+                // Login form
+                document.getElementById('login-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('login-email').value;
+                    const password = document.getElementById('login-password').value;
+                    
+                    // In a real app, you would validate and send to server
+                    state.currentUser = { 
+                        email,
+                        name: email.split('@')[0] 
+                    };
+                    alert('Login successful!');
+                    closeAllModals();
+                    updateAuthUI();
+                    displayProducts(); // Update add to cart buttons
+                    displayAllMedicines(); // Update medicines section
+                    displayWellnessProducts(); // Update wellness section
+                    displayHealthcareProducts(); // Update healthcare section
+                    displayLabTests(); // Update lab tests section
+                    displayOffers(); // Update offers section
+                });
+                
+                // Signup form
+                document.getElementById('signup-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('signup-name').value;
+                    const email = document.getElementById('signup-email').value;
+                    const password = document.getElementById('signup-password').value;
+                    const phone = document.getElementById('signup-phone').value;
+                    
+                    // In a real app, you would validate and send to server
+                    state.currentUser = { 
+                        name, 
+                        email, 
+                        phone 
+                    };
+                    alert('Signup successful!');
+                    closeAllModals();
+                    updateAuthUI();
+                    displayProducts(); // Update add to cart buttons
+                    displayAllMedicines(); // Update medicines section
+                    displayWellnessProducts(); // Update wellness section
+                    displayHealthcareProducts(); // Update healthcare section
+                    displayLabTests(); // Update lab tests section
+                    displayOffers(); // Update offers section
+                });
+                
+                // Close when clicking outside modal
+                window.addEventListener('click', (event) => {
+                    if (event.target === elements.loginModal) {
+                        elements.loginModal.style.display = 'none';
+                    }
+                    if (event.target === elements.signupModal) {
+                        elements.signupModal.style.display = 'none';
+                    }
+                    if (event.target === state.checkoutModal) {
+                        state.checkoutModal.style.display = 'none';
+                    }
+                    if (event.target === elements.cartPanel) {
+                        closeCartPanel();
+                    }
+                });
+            }
+
+            // Expose public methods
+            window.app = {
+                init,
+                addToCart,
+                removeFromCart,
+                updateCart,
+                showCartPanel,
+                closeCartPanel,
+                toggleCartPanel,
+                checkout,
+                openCheckoutModal,
+                closeCheckoutModal,
+                showCheckoutStep,
+                loadAddresses,
+                proceedToPayment,
+                showNewAddressForm,
+                backToAddressSelection,
+                backToAddressSelectionFromPayment,
+                saveNewAddress,
+                placeOrder,
+                showOrderConfirmation,
+                showUpiPaymentDialog,
+                showCardPaymentForm,
+                showNetBankingOptions,
+                continueShopping,
+                openModal,
+                closeAllModals,
+                updateAuthUI,
+                filterProducts,
+                displayProducts,
+                displayAllMedicines,
+                navigateToSection,
+                bookLabTest,
+                showLabTestConfirmation,
+                handlePrescriptionUpload
+            };
+
+            // Initialize the app
+            init();
+        })();
+    </script>
+</body>
+</html>
