@@ -1,5 +1,5 @@
 # Medicare Pharmacy
-**Medicare Pharmacy** is a simple and responsive **web application** built with a single `index.html` file (containing HTML, CSS, and JavaScript).  
+**Medicare Pharmacy** is a simple and responsive **web application** built with a single `pharma.html` file (containing HTML, CSS, and JavaScript).  
 It allows users to **order medicines online** and **book lab tests**, with images of medicines displayed for a realistic browsing experience.  
 ## Features  
 -  **Order Medicines** – Browse medicines with images and place orders.  
@@ -9,9 +9,8 @@ It allows users to **order medicines online** and **book lab tests**, with image
 ## 🛠️ Tech Stack  
 - **HTML** (with inline CSS and JavaScript)  
 ## How to Run  
-1. Download or extract the project ZIP.  
-2. Open `pharma.html` in your browser.  
-3. Explore features like **Medicine ordering** and **Lab test booking**.  
+1. Open `pharma.html` in your browser.  
+2. Explore features like **Medicine ordering** and **Lab test booking**.  
 ## Future Enhancements  
 -  Add online payment gateway  
 -  Implement user login & prescription upload  
