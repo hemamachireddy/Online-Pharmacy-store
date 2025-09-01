@@ -9,7 +9,7 @@ It allows users to **order medicines online** and **book lab tests**, with image
 ## 🛠️ Tech Stack  
 - **HTML** (with inline CSS and JavaScript)  
 ## How to Run  
-1. Open `pharma.html` in your browser.  
+1. Open `pharma.html` in your VS Code.  
 2. Explore features like **Medicine ordering** and **Lab test booking**.  
 ## Future Enhancements  
 -  Add online payment gateway  
